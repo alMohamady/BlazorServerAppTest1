@@ -1,4 +1,5 @@
 ﻿@page "/MyPage"
+@inject NavigationManager navManager
 
 <PageTitle>My Page</PageTitle>
 
@@ -8,7 +9,10 @@
 
 <input type="text" @bind="txtName" />
 
-<a href="/MyPage/MyPageInfo/@txtName">Get more info ..</a>
+<a href="/MyPage/MyPageInfo/@txtName/38" >Get more info ..</a>
+
+<br />
+<button class="btn btn-primary" @onclick="GoToInfoPage"> Go To More Info by button </button>
 
 <hr />
 <a href="/pageInfo">Get more info .. 2</a>
@@ -16,4 +20,8 @@
 @code {
     public string txtName { get; set; } = string.Empty;
 
+    void GoToInfoPage()
+    {
+        navManager.NavigateTo($"/MyPage/MyPageInfo/{txtName}/38");
+    }
 }
