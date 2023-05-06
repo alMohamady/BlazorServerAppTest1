@@ -1,4 +1,5 @@
-﻿@page "/MyPage/MyPageInfo"
+﻿@page "/MyPage/MyPageInfo/{MyName}"
+@page "/MyPage/MyPageInfo"
 @page "/pageInfo"
 
 
@@ -6,11 +7,16 @@
 
 <hr />
 
+<h4> @(MyName ?? "Not Set") </h4>
+
 <p> 
     This is full information about my page, 
     Pla Pla Pla ..............
 </p>
 
 @code {
+
+    [Parameter]
+    public string? MyName { get; set; }
 
 }

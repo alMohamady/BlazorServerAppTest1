@@ -6,11 +6,14 @@
 
 <hr />
 
-<a href="/MyPage/MyPageInfo">Get more info ..</a>
+<input type="text" @bind="txtName" />
+
+<a href="/MyPage/MyPageInfo/@txtName">Get more info ..</a>
 
 <hr />
 <a href="/pageInfo">Get more info .. 2</a>
 
 @code {
+    public string txtName { get; set; } = string.Empty;
 
 }
