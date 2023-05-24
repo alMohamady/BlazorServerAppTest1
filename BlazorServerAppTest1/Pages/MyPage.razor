@@ -1,5 +1,7 @@
 ﻿@page "/MyPage"
-@inject NavigationManager navManager
+
+@inherits MyFather
+
 
 <PageTitle>My Page</PageTitle>
 
@@ -17,11 +19,3 @@
 <hr />
 <a href="/pageInfo">Get more info .. 2</a>
 
-@code {
-    public string txtName { get; set; } = string.Empty;
-
-    void GoToInfoPage()
-    {
-        navManager.NavigateTo($"/MyPage/MyPageInfo/{txtName}/38");
-    }
-}

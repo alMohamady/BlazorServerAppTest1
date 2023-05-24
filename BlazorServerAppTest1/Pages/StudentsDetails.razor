@@ -16,17 +16,3 @@
         <p>@studentsService.GetSystemVersion()</p>
     </div>
 </div>
-
-
-@code {
-
-    [Parameter]
-    public int id { get; set; }
-
-    public Student student { get; set; }
-
-    protected override void OnInitialized()
-    {
-        student = studentsService.GetStudent(id);
-    }
-}

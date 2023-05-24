@@ -28,16 +28,3 @@
     </div>
 </div>
 
-
-
-@code {
-
-    public List<Student> students { get; set; }
-
-
-    protected override void OnInitialized()
-    {
-        students = studentsService.GetStudents();
-    }
-
-}
