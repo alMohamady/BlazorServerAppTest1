@@ -1,0 +1,44 @@
+﻿@page "/Students"
+@using BlazorServerAppTest1.Data;
+
+<h3>Students</h3>
+<hr />
+<div class="col-12">
+    @foreach (var st in students)
+    {
+         <div class="row">
+             <div class="col-2">
+                 <NavLink href="@($"/Students/Detials/{st.StudentId}")">
+                     @st.StudentName
+                 </NavLink>
+             </div>
+
+             <div class="col-4">
+                <p><strong>Age:</strong> : @st.StudentGrade</p>
+            </div>         
+         </div>
+    }
+
+    <div class="row">
+        <div class="col">
+            <p>@studentsService.GetDateTime()</p>
+            <p>@studentsService.GetSystemVersion()</p>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+
+    public List<Student> students { get; set; }
+    public IStudentsService studentsService { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        studentsService = new StudentsService();
+        students = studentsService.GetStudents();
+    }
+
+}
