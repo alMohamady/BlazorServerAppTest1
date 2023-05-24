@@ -1,5 +1,6 @@
 ﻿@page "/Students"
 @using BlazorServerAppTest1.Data;
+@inject IStudentsService studentsService;
 
 <h3>Students</h3>
 <hr />
@@ -32,12 +33,10 @@
 @code {
 
     public List<Student> students { get; set; }
-    public IStudentsService studentsService { get; set; }
 
 
     protected override void OnInitialized()
     {
-        studentsService = new StudentsService();
         students = studentsService.GetStudents();
     }
 

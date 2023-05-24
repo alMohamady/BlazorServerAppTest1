@@ -9,6 +9,10 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 
+//builder.Services.AddTransient<IStudentsService, StudentsService>();
+//builder.Services.AddSingleton<IStudentsService, StudentsService>();
+builder.Services.AddScoped<IStudentsService, StudentsService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

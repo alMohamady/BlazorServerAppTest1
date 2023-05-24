@@ -1,6 +1,6 @@
 ﻿@page "/Students/Detials/{id:int}"
 @using BlazorServerAppTest1.Data;
-
+@inject IStudentsService studentsService
 
 <h3>Students Details</h3>
 
@@ -24,11 +24,9 @@
     public int id { get; set; }
 
     public Student student { get; set; }
-    public IStudentsService studentsService { get; set; }
 
     protected override void OnInitialized()
     {
-        studentsService = new StudentsService();
         student = studentsService.GetStudent(id);
     }
 }
