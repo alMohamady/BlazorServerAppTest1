@@ -1,4 +1,6 @@
 ﻿using BlazorServerAppTest1.Data;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace BlazorServerAppTest1.Pages
 {
@@ -8,15 +10,23 @@ namespace BlazorServerAppTest1.Pages
 
         public Student student { get; set; }
 
+        //[Inject]
+        //IJSRuntime jS { get; set; }
+
         protected override void OnInitialized()
         {
             student = new Student();
             students = studentsService.GetStudents();
         }
 
-        private void addStudent()
-        { 
-           studentsService.addStudent(student);
+        private async Task addStudent()
+        {
+            studentsService.addStudent(student);
+           
+
+            await myJs.InvokeVoidAsync("successMessage", student.StudentName, student.StudentAge);
+
+            student = new Student();
         }
     }
 }
