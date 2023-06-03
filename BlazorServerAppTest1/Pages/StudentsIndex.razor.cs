@@ -24,7 +24,7 @@ namespace BlazorServerAppTest1.Pages
             studentsService.addStudent(student);
            
 
-            await myJs.InvokeVoidAsync("successMessage", student.StudentName, student.StudentAge);
+            await myJs.InvokeVoidAsync("successMessage", student.StudentName, student.StudentGrade);
 
             student = new Student();
         }
