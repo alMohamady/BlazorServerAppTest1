@@ -6,6 +6,9 @@
 <h3>Students</h3>
 <hr />
 
+<div id="validationSection" class="col-10 alert alert-info">
+</div>
+
 <EditForm Model="student" OnValidSubmit="addStudent">
 
     <DataAnnotationsValidator />
@@ -13,7 +16,7 @@
 
     <div class="col-12 row">
         <label class="col-2">Student Name:</label>
-        <InputText class="form-control col-3" @bind-Value="student.StudentName" 
+        <input @ref="refStudentName" class="form-control col-3" @bind="student.StudentName"
                    placeholder="Student Name" />
         <ValidationMessage For="() => student.StudentName"></ValidationMessage>
     </div>
@@ -47,6 +50,19 @@
     <div class="col-12 row">
         <label class="col-2">email:</label>
         <InputText class="form-control col-3" @bind-Value="student.email" />
+    </div>
+
+    <div class="col-12 row">
+        <label class="col-2">school:</label>
+        <InputSelect @bind-Value="student.school" class="form-control col-3">
+            @if (schools != null)
+            {
+              foreach(var school in schools)
+              {
+                    <option value="@school"> @school </option>
+              }
+            }
+        </InputSelect>
     </div>
 
     <br />

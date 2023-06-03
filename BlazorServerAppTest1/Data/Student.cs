@@ -23,5 +23,7 @@ namespace BlazorServerAppTest1.Data
         [DataType(DataType.EmailAddress)]
         [EmailAddress(ErrorMessage = "please enter a valid email")]
         public string? email { get; set; }
+
+        public string? school { get; set; }
     }
 }
