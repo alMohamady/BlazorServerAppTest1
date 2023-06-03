@@ -13,5 +13,7 @@
         DateTime GetDateTime();
 
         string GetSystemVersion();
+
+        void addStudent(Student student); 
     }
 }

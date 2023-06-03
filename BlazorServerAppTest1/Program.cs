@@ -10,8 +10,8 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 
 //builder.Services.AddTransient<IStudentsService, StudentsService>();
-//builder.Services.AddSingleton<IStudentsService, StudentsService>();
-builder.Services.AddScoped<IStudentsService, StudentsService>();
+builder.Services.AddSingleton<IStudentsService, StudentsService>();
+//builder.Services.AddScoped<IStudentsService, StudentsService>();
 
 var app = builder.Build();
 

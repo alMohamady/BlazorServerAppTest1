@@ -4,6 +4,49 @@
 
 <h3>Students</h3>
 <hr />
+
+<EditForm Model="student" OnValidSubmit="addStudent">
+
+    <div class="col-12 row">
+        <label class="col-2">Student Name:</label>
+        <InputText class="form-control col-3" @bind-Value="student.StudentName" 
+                   placeholder="Student Name" />
+    </div>
+
+    <div class="col-12 row">
+        <label class="col-2">Student Id:</label>
+        <InputNumber class="form-control col-3" @bind-Value="student.StudentId" />
+    </div>
+
+    <div class="col-12 row">
+        <label class="col-2">Student Age:</label>
+        <InputNumber class="form-control col-3" @bind-Value="student.StudentAge"/>
+    </div>
+
+    <div class="col-12 row">
+        <label class="col-2">Student Phone:</label>
+        <InputText class="form-control col-3" @bind-Value="student.StudentPhone"
+                   placeholder="Phone" />
+    </div>
+
+
+    <div class="col-12 row">
+        <label class="col-2">Student Grade:</label>
+        <InputNumber class="form-control col-3" @bind-Value="student.StudentGrade" />
+    </div>
+
+    <br />
+    <div class="col-12 row">
+        <div class="col-6">
+            <input type="submit" class="form-control col-1 btn btn-primary" value="Save" />
+        </div>
+        <div class="col-6">
+            <input type="submit" class="form-control col-1 btn btn-info" value="clear" />
+        </div>
+    </div>
+</EditForm>
+
+<hr />
 <div class="col-12">
     @foreach (var st in students)
     {

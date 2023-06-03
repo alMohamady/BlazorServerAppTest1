@@ -41,5 +41,10 @@
         {
             return CreatedAt.Value;
         }
+
+        public void addStudent(Student student)
+        {
+            Students.Add(student);
+        }
     }
 }
