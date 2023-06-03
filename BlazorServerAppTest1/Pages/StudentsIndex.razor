@@ -7,10 +7,14 @@
 
 <EditForm Model="student" OnValidSubmit="addStudent">
 
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
     <div class="col-12 row">
         <label class="col-2">Student Name:</label>
         <InputText class="form-control col-3" @bind-Value="student.StudentName" 
                    placeholder="Student Name" />
+        <ValidationMessage For="() => student.StudentName"></ValidationMessage>
     </div>
 
     <div class="col-12 row">
@@ -29,10 +33,19 @@
                    placeholder="Phone" />
     </div>
 
-
     <div class="col-12 row">
         <label class="col-2">Student Grade:</label>
         <InputNumber class="form-control col-3" @bind-Value="student.StudentGrade" />
+    </div>
+
+    <div class="col-12 row">
+        <label class="col-2">birthdate:</label>
+        <InputDate class="form-control col-3" @bind-Value="student.birthdate" />
+    </div>
+
+    <div class="col-12 row">
+        <label class="col-2">email:</label>
+        <InputText class="form-control col-3" @bind-Value="student.email" />
     </div>
 
     <br />
