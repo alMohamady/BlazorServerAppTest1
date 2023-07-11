@@ -7,8 +7,16 @@
 <h3>Students</h3>
 <hr />
 
-<MyValidator msg="@theMsg">
-
+<MyValidator msg="@theMsg" useFragment="true" isVisable="visable">
+    <fragment>
+        @if (myDate != null)
+        {
+            <br />
+            <span>
+                <b>date:</b> @myDate
+            </span>
+        }
+    </fragment>
 </MyValidator>
 
 <EditForm Model="student" OnValidSubmit="addStudent">

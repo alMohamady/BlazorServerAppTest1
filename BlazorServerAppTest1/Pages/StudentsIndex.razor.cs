@@ -12,6 +12,8 @@ namespace BlazorServerAppTest1.Pages
         public Student student { get; set; }
 
         public string? theMsg;
+        public string? myDate;
+        public bool visable = false;
 
         //[Inject]
         //IJSRuntime jS { get; set; }
@@ -38,6 +40,8 @@ namespace BlazorServerAppTest1.Pages
 
         private async Task addStudent()
         {
+            visable = true;
+
             studentsService.addStudent(student);
             string StudentName = student.StudentName;
             string StudentGrade = student.StudentAge.ToString();
@@ -45,6 +49,8 @@ namespace BlazorServerAppTest1.Pages
 
             //await myJs.InvokeVoidAsync("successMessage", StudentName, StudentGrade);
             theMsg = StudentName + " in " + StudentGrade + " has been saved successfully !";
+
+            myDate = student.birthdate.ToShortDateString(); 
 
             await myJs.InvokeVoidAsync("setFocus", refStudentName);
 

@@ -1,17 +1,32 @@
-﻿<div id="validationSection" class="col-10 alert alert-info">
-    @if (msg != null)
-    {
-        <span>
-            @msg
-        </span>
-    }
-    @if (useFragment)
-    {
-        @fragment
-    }
-</div>
+﻿
+@if (isVisable)
+{
+    <div id="validationSection" class="row col-10 alert alert-info">
+
+        <div class="col-11" style="text-align:left;">
+            @if (msg != null)
+            {
+                <span>
+                    @msg
+                </span>
+            }
+            @if (useFragment && fragment != null)
+            {
+                @fragment
+            }
+        </div>
+
+        <div class="col-1" style="text-align:right;">
+            <a style="text-underline-position:below; cursor:pointer;"
+              @onclick="closeMsg" >x</a>
+        </div>
+    </div>
+}
 
 @code {
+    [Parameter]
+    public bool isVisable { get; set; }
+
     [Parameter]
     public string? msg { get; set; }
 
@@ -19,6 +34,11 @@
     public bool useFragment { get; set; }
 
     [Parameter]
-    public RenderFragment fragment { get; set; }
+    public RenderFragment? fragment { get; set; }
+    //ChildContent => defult fragment
 
+    public void closeMsg()
+    {
+        isVisable = false;
+    }
 }
