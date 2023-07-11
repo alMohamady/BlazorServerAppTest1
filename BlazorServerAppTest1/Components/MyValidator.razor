@@ -5,10 +5,20 @@
             @msg
         </span>
     }
+    @if (useFragment)
+    {
+        @fragment
+    }
 </div>
 
 @code {
     [Parameter]
     public string? msg { get; set; }
+
+    [Parameter]
+    public bool useFragment { get; set; }
+
+    [Parameter]
+    public RenderFragment fragment { get; set; }
 
 }
