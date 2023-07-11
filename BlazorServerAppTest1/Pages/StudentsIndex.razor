@@ -1,13 +1,13 @@
 ﻿@page "/Students"
 @using BlazorServerAppTest1.Data;
+@using BlazorServerAppTest1.Components;
 @inject IStudentsService studentsService;
 @inject IJSRuntime myJs; 
 
 <h3>Students</h3>
 <hr />
 
-<div id="validationSection" class="col-10 alert alert-info">
-</div>
+<MyValidator />
 
 <EditForm Model="student" OnValidSubmit="addStudent">
 
