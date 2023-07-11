@@ -1,6 +1,7 @@
 ﻿using BlazorServerAppTest1.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using System.Diagnostics;
 
 namespace BlazorServerAppTest1.Pages
 {
@@ -9,6 +10,8 @@ namespace BlazorServerAppTest1.Pages
         public List<Student> students { get; set; }
 
         public Student student { get; set; }
+
+        public string? theMsg;
 
         //[Inject]
         //IJSRuntime jS { get; set; }
@@ -40,7 +43,9 @@ namespace BlazorServerAppTest1.Pages
             string StudentGrade = student.StudentAge.ToString();
             student = new Student();
 
-            await myJs.InvokeVoidAsync("successMessage", StudentName, StudentGrade);
+            //await myJs.InvokeVoidAsync("successMessage", StudentName, StudentGrade);
+            theMsg = StudentName + " in " + StudentGrade + " has been saved successfully !";
+
             await myJs.InvokeVoidAsync("setFocus", refStudentName);
 
         }

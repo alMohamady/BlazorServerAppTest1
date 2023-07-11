@@ -1,6 +1,14 @@
 ﻿<div id="validationSection" class="col-10 alert alert-info">
+    @if (msg != null)
+    {
+        <span>
+            @msg
+        </span>
+    }
 </div>
 
 @code {
+    [Parameter]
+    public string? msg { get; set; }
 
 }
