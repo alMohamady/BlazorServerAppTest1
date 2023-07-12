@@ -1,7 +1,47 @@
 ﻿@page "/MasterPage"
+@using BlazorServerAppTest1.Data;
+@using Radzen.Blazor;
+@inject OrderService orderSvr; 
+
 
 <h3>MustePage</h3>
 
+@if (orders == null)
+{
+    <p>Loding....</p>
+}
+else
+{
+    <RadzenGrid Data="orders" TItem="Orders" AllowFiltering="true" 
+         FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+         AllowPaging="true" PageSize="4" RowSelect="onSelect">
+         <Columns>
+            <RadzenGridColumn TItem="Orders" Property="orderId" Title="Id"></RadzenGridColumn>
+            <RadzenGridColumn TItem="Orders" Property="customerName" Title="customer"></RadzenGridColumn>
+            <RadzenGridColumn TItem="Orders" Property="orderDate" Title="Date">
+                <Template Context="data">
+                    @String.Format("{0:d}", data.orderDate)
+                </Template>
+            </RadzenGridColumn>
+         </Columns>
+   </RadzenGrid>
+}
+
+
 @code {
 
+    Orders? Order;
+
+    IEnumerable<Orders>? orders;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        orders = await Task.Run(() => orderSvr.OrderList());
+    }
+
+    private void onSelect(Orders? order)
+    {
+        Order = order;
+    }
 }
