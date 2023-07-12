@@ -1,0 +1,16 @@
+﻿<div class="ms-5">
+    <h3 style="color:@txtColor">Component2</h3>
+
+    <p role="status">Current count: @currentValue </p>
+
+</div>
+
+
+@code {
+
+    [CascadingParameter(Name = "myCounter")]
+    public int currentValue { get; set; }
+
+    [CascadingParameter(Name ="txtColor")]
+    public string txtColor { get; set; }
+}

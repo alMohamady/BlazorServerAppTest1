@@ -1,12 +1,20 @@
 ﻿@page "/counter"
+@using BlazorServerAppTest1.Components;
 
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
 
-<p role="status">Current count: @currentCount</p>
+@*<p role="status">Current count: @currentCount</p>*@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<CascadingValue Name="myCounter" Value="@currentCount">
+    <CascadingValue Name="txtColor" Value="@("red")" IsFixed="true" >
+        <Component101></Component101>
+    </CascadingValue>
+</CascadingValue>
+
 
 @code {
     private int currentCount = 0;
