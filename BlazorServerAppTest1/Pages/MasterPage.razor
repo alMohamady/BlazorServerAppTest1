@@ -25,6 +25,32 @@ else
             </RadzenGridColumn>
          </Columns>
    </RadzenGrid>
+
+   <br />
+   <hr />
+
+   <RadzenTabs>
+       <Tabs>
+           <RadzenTabsItem Text="Details" >
+               @if(Order != null)
+               {
+                    <RadzenGrid Data="Order.details" TItem="OrderDetails"
+                        AllowPaging="true" PageSize="4" >
+                         <Columns>
+                            <RadzenGridColumn TItem="OrderDetails" Property="productId" Title="Id"></RadzenGridColumn>
+                            <RadzenGridColumn TItem="OrderDetails" Property="productName" Title="Name"></RadzenGridColumn>
+                            <RadzenGridColumn TItem="OrderDetails" Property="Qty" Title="Qty"></RadzenGridColumn>
+                            <RadzenGridColumn TItem="OrderDetails" Property="price" Title="price"></RadzenGridColumn>
+                         </Columns>
+                    </RadzenGrid>
+               }
+                else
+                {
+                  <p>No Items here ...</p>
+                }
+            </RadzenTabsItem>
+       </Tabs>
+   </RadzenTabs>
 }
 
 
